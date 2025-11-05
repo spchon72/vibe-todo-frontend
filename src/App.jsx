@@ -5,14 +5,13 @@ import './App.css'
 // 주의: 백엔드에서 CORS 설정이 필요합니다
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api/todos'
 
-// 환경 변수 확인용 (개발 시에만)
-if (import.meta.env.DEV) {
-  console.log('환경 변수 확인:', {
-    VITE_API_BASE_URL: import.meta.env.VITE_API_BASE_URL,
-    사용중인_API_BASE_URL: API_BASE_URL,
-    MODE: import.meta.env.MODE
-  })
-}
+// 환경 변수 확인용 (개발 및 배포 환경 모두)
+console.log('=== 환경 변수 확인 ===', {
+  VITE_API_BASE_URL: import.meta.env.VITE_API_BASE_URL,
+  사용중인_API_BASE_URL: API_BASE_URL,
+  MODE: import.meta.env.MODE,
+  환경: import.meta.env.DEV ? '개발' : '배포'
+})
 
 function App() {
   const [todos, setTodos] = useState([])
