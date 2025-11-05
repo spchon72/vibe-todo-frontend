@@ -1,0 +1,302 @@
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.todo-app {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 800px;
+  padding: 30px;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* 할일 추가 폼 */
+.todo-form {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.todo-form input[type="text"],
+.todo-form input[type="date"],
+.todo-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.todo-form input[type="text"]:focus,
+.todo-form input[type="date"]:focus,
+.todo-form textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.todo-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.form-actions button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #667eea;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.form-actions button:hover {
+  background: #5568d3;
+}
+
+.form-actions button[type="button"] {
+  background: #6c757d;
+}
+
+.form-actions button[type="button"]:hover {
+  background: #5a6268;
+}
+
+/* 할일 목록 */
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.empty-message {
+  text-align: center;
+  color: #999;
+  padding: 40px;
+  font-size: 16px;
+}
+
+/* 할일 아이템 */
+.todo-item {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.todo-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #667eea;
+}
+
+.todo-item.completed {
+  opacity: 0.7;
+  background: #f8f9fa;
+}
+
+.todo-item.completed .todo-info h3 {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.todo-content {
+  display: flex;
+  gap: 15px;
+  flex: 1;
+}
+
+.todo-content input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  margin-top: 3px;
+  cursor: pointer;
+  accent-color: #667eea;
+}
+
+.todo-info {
+  flex: 1;
+}
+
+.todo-info h3 {
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.todo-info p {
+  color: #666;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.due-date {
+  color: #e74c3c;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.tag {
+  background: #e9ecef;
+  color: #495057;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 액션 버튼 */
+.todo-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.todo-actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.todo-actions button:first-child {
+  background: #28a745;
+  color: white;
+}
+
+.todo-actions button:first-child:hover {
+  background: #218838;
+}
+
+.todo-actions button.delete-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.todo-actions button.delete-btn:hover {
+  background: #c82333;
+}
+
+/* 수정 폼 */
+.editing-form {
+  flex: 1;
+  background: #fff3cd;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.editing-form input,
+.editing-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #ffc107;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.editing-form input:focus,
+.editing-form textarea:focus {
+  outline: none;
+  border-color: #ff9800;
+}
+
+.editing-form textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-actions button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.edit-actions button:first-child {
+  background: #667eea;
+  color: white;
+}
+
+.edit-actions button:first-child:hover {
+  background: #5568d3;
+}
+
+.edit-actions button:last-child {
+  background: #6c757d;
+  color: white;
+}
+
+.edit-actions button:last-child:hover {
+  background: #5a6268;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .todo-app {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .todo-item {
+    flex-direction: column;
+  }
+
+  .todo-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .todo-actions button {
+    flex: 1;
+  }
+}
+
