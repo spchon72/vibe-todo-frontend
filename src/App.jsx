@@ -5,13 +5,26 @@ import './App.css'
 // 주의: 백엔드에서 CORS 설정이 필요합니다
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api/todos'
 
-// 환경 변수 확인용 (개발 및 배포 환경 모두)
-console.log('=== 환경 변수 확인 ===', {
-  VITE_API_BASE_URL: import.meta.env.VITE_API_BASE_URL,
-  사용중인_API_BASE_URL: API_BASE_URL,
-  MODE: import.meta.env.MODE,
-  환경: import.meta.env.DEV ? '개발' : '배포'
-})
+// 환경 변수 확인 및 경고
+if (import.meta.env.DEV) {
+  // 개발 환경
+  console.log('=== 개발 환경 ===', {
+    VITE_API_BASE_URL: import.meta.env.VITE_API_BASE_URL,
+    사용중인_API_BASE_URL: API_BASE_URL
+  })
+} else {
+  // 배포 환경
+  if (!import.meta.env.VITE_API_BASE_URL) {
+    console.error('⚠️ 경고: VITE_API_BASE_URL 환경 변수가 설정되지 않았습니다!')
+    console.error('Vercel 대시보드 → Settings → Environment Variables에서 설정하세요.')
+    console.error('현재 기본값(/api/todos)을 사용하고 있지만, 배포 환경에서는 작동하지 않을 수 있습니다.')
+  }
+  console.log('=== 배포 환경 ===', {
+    VITE_API_BASE_URL: import.meta.env.VITE_API_BASE_URL || '(설정되지 않음)',
+    사용중인_API_BASE_URL: API_BASE_URL,
+    환경변수_로드됨: !!import.meta.env.VITE_API_BASE_URL
+  })
+}
 
 function App() {
   const [todos, setTodos] = useState([])
